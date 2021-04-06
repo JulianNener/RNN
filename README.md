@@ -1,2 +1,2 @@
 # RNN
-Easy to use wrapper to train and test RNNs using cuDNN
+Easy to use cuDNN wrapper to train and test RNNs
