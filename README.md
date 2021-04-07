@@ -35,3 +35,13 @@ The library is contained within the ```cudaRNN``` namespace. The workflow is ver
 - Initialize inputs, which should be ordered as ```[inLength, nSequences, inVecSize]```, and targets as ```[outLength, nSequences, inVecSize]```, by using the methods ```setInputs``` and ```setTargets```.
 - Select an optimizer and a loss metric through ```setOptimzer``` and ```setMetrics``` (optional).
 - Call ```train```.
+
+
+Public variables of the structure ```RNNOptions_t```
+
+![table1](https://user-images.githubusercontent.com/82059515/113911929-ef507d80-97b0-11eb-894f-c971fe2bc7c9.png)
+
+
+This structure contains the following enumerations:
+
+![table2](https://user-images.githubusercontent.com/82059515/113914422-e9a86700-97b3-11eb-9a8f-4f6655e07c90.png)
