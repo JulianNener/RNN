@@ -17,19 +17,7 @@ vector<T> makeInputData(RNNOptions_t myOpts, int nSeq)
                 myInputs[details::idx_3Dto1D(i, j, k, nSeq, myOpts.inVecSize)] = sinf(1.*i/(j+1));
         }
     }
-
-    ofstream out("pyinputs.txt");
-    for(int i = 0; i < nSeq; ++i)
-    {
-        for(int j = 0; j < myOpts.inLength; ++j)
-        {
-            for(int k = 0; k < myOpts.inVecSize; ++k)
-                out << myInputs[details::idx_3Dto1D(j, i, k, nSeq, myOpts.outVecSize)] << " ";
-            out << endl;
-        }
-        out << endl << endl;
-    }
-
+    
     return myInputs;
 }
 
@@ -45,18 +33,6 @@ vector<T> makeTargetData(RNNOptions_t myOpts, int nSeq)
             for(int k = 0; k < myOpts.outVecSize; ++k)
                 myTargets[details::idx_3Dto1D(i, j, k, nSeq, myOpts.outVecSize)] = sinf(1.*(i+k+myOpts.inLength)/(j+1));
         }
-    }
-
-    ofstream pyout("pytargets.txt");
-    for(int i = 0; i < nSeq; ++i)
-    {
-        for(int j = 0; j < myOpts.outLength; ++j)
-        {
-            for(int k = 0; k < myOpts.outVecSize; ++k)
-                pyout << myTargets[details::idx_3Dto1D(j, i, k, nSeq, myOpts.outVecSize)] << " ";
-            pyout << endl;
-        }
-        //out << endl << endl;
     }
 
     ofstream out("targets.txt");
@@ -117,15 +93,6 @@ int main()
     myRNN.setMetrics(MetricType::None, 0, "");
     myRNN.test(1, true, "outputs.txt");
     myRNN.save();
-
-
-    // RNNOptions_t myOpts2;
-    // RNN<float, float> myRNN2(myOpts2);
-    // myRNN2.load();
-
-    // myRNN2.setInputs(myInputs);
-    // myRNN2.setTargets(myTargets);
-    // myRNN2.test(1, true, "outputs.txt");
 
     return 0;
 }
