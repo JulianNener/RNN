@@ -1,5 +1,7 @@
 # cudaRNN
-Minimal library that uses cuDNN to implement efficient RNNs in GPU
+Minimal wrapper that uses cuDNN to implement efficient RNNs in GPU. Very easy to use.
+
+![dibujito](https://user-images.githubusercontent.com/82059515/113908958-87e4fe80-97ad-11eb-9e51-38ad44878964.png)
 
 ## Benchmarks
 In what follows, some benchmarks are shown comparing this implementation with respect to TensorFlow using a GTX 1070 Ti GPU.
